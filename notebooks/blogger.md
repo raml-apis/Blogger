@@ -1,6 +1,6 @@
 ---
 site: https://anypoint.mulesoft.com/apiplatform/popular/admin/#/dashboard/apis/17051/versions/18206/portal/pages/28702/edit
-apiNotebookVersion: 1.1.66
+apiNotebookVersion: 1.1.67
 title: Blogger
 ---
 
@@ -36,6 +36,36 @@ function getPath (post){
   var index = url.indexOf(".com") + ".com".length
   var path = url.substring(index)
   return path
+}
+```
+
+```javascript
+function selectComment(msg){
+  var number = null
+  var pageSize = -1
+  var pagesCount = 1
+
+  var searchResponse = client.blogs.blogId(ID_BLOG).posts.postId(ID_POST).comments.get()
+  for(var i = 0 ; i < pagesCount ; i++ ){
+    var comments = commentsResponse.body.items
+    var message = msg
+    message += "\n"
+    for( var j in comments){
+      message += "\n" + j + ": " + comments[j].content
+    }
+    var indStr = prompt(message)
+    if(!indStr)
+      break;
+
+    ind = Number.parseInt(indStr)
+    if(!(typeof ind === "number")||Number.isNaN(ind)||ind<0){
+       break
+    }
+    if(ind>=0){
+      return comments[ind]
+    }  
+  }
+  return null
 }
 ```
 
@@ -261,7 +291,8 @@ commentsResponse = client.blogs.blogId(ID_BLOG).posts.postId(ID_POST).comments.g
 
 ```javascript
 assert.equal( commentsResponse.status, 200 )
-ID_COMMENT = commentsResponse.body.items[0].id
+COMMENT = selectComment("Please, select your comment by entering its index.")
+ID_COMMENT = COMMENT.id
 ```
 
 Retrieves one comment resource by its commentId
