@@ -11,7 +11,7 @@ load('https://github.com/chaijs/chai/releases/download/1.9.0/chai.js')
 See http://chaijs.com/guide/styles/ for assertion styles
 
 ```javascript
-assert = chai.assert
+assert = chai.assert 
 ```
 
 ```javascript
