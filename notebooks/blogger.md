@@ -85,7 +85,7 @@ userResponse = client.users.userId(ID_USER).get()
 assert.equal( userResponse.status, 200 )
 ```
 
-Retrieves a list of blogs
+Retrieves a list of blogs 
 
 ```javascript
 blogsResponse = client.users.userId(ID_USER).blogs.get()
