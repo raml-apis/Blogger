@@ -6,19 +6,19 @@ mediaType: application/json
 securitySchemes:
   - oauth_2_0: !include securitySchemes/oauth_2_0.raml
 schemas:
-  - blogResource: !include /schemas/blogResource-schema.json
-  - getListByUser: !include /schemas/getListByUser-schema.json
-  - commentsList: !include /schemas/commentsList-schema.json
-  - comment: !include /schemas/comment-schema.json
-  - pages: !include /schemas/pages-schema.json
-  - page: !include /schemas/page-schema.json
-  - postsList: !include /schemas/postsList-schema.json
-  - post: !include /schemas/post-schema.json
-  - user: !include /schemas/user-schema.json
-  - blogUserInfo: !include /schemas/blogUserInfo-schema.json
-  - pageViews: !include /schemas/pageViews-schema.json
-  - postUserInfo: !include /schemas/postUserInfo-schema.json
-  - postUserInfosList: !include /schemas/postUserInfosList-schema.json
+  - blogResource: !include schemas/blogResource-schema.json
+  - getListByUser: !include schemas/getListByUser-schema.json
+  - commentsList: !include schemas/commentsList-schema.json
+  - comment: !include schemas/comment-schema.json
+  - pages: !include schemas/pages-schema.json
+  - page: !include schemas/page-schema.json
+  - postsList: !include schemas/postsList-schema.json
+  - post: !include schemas/post-schema.json
+  - user: !include schemas/user-schema.json
+  - blogUserInfo: !include schemas/blogUserInfo-schema.json
+  - pageViews: !include schemas/pageViews-schema.json
+  - postUserInfo: !include schemas/postUserInfo-schema.json
+  - postUserInfosList: !include schemas/postUserInfosList-schema.json
 traits:
   - posts: !include traits/posts.raml
   - view: !include traits/view.raml
